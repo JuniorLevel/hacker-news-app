@@ -1,0 +1,62 @@
+@import "normalize.css";
+
+$background-dark-theme: #242424;
+$text-dark-theme: rgba(255, 255, 255, 0.87);
+$background-light-theme: #ffffff;
+$text-light-theme: black;
+$text-header-dark-theme: orange;
+
+html[data-theme="dark"] {
+  body {
+    transition: 1s ease;
+    background-color: $background-dark-theme;
+    color: $text-dark-theme;
+    h1 {
+      color: $text-header-dark-theme;
+    }
+    header {
+      span {
+        color: $text-header-dark-theme;
+      }
+    }
+  }
+}
+
+html[data-theme="light"] {
+  body {
+    transition: 1s ease;
+    background-color: $background-light-theme;
+    color: $text-light-theme;
+    h1 {
+      color: $background-light-theme;
+    }
+    header {
+      span {
+        color: $background-light-theme;
+      }
+    }
+  }
+}
+
+body {
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

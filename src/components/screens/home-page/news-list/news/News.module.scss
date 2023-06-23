@@ -1,0 +1,31 @@
+.news {
+  //   border: 1px solid orange;
+  //   padding: 10px 10px 30px 30px;
+  margin-bottom: 20px;
+  &__top {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-size: 20px;
+  }
+  &__number {
+    font-size: 25px;
+    color: grey;
+    font-weight: bold;
+  }
+  &__title {
+  }
+  &__block {
+    display: flex;
+    gap: 15px;
+  }
+  &__blockAuthor,
+  &__blockDate,
+  &__titleLink {
+    &:hover {
+      transition: 1s ease;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
