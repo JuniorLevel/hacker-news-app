@@ -1,27 +1,47 @@
 .news {
-  //   border: 1px solid orange;
-  //   padding: 10px 10px 30px 30px;
+  counter-increment: news;
+  position: relative;
+  padding-left: 45px;
   margin-bottom: 20px;
+  &:before {
+    position: absolute;
+    content: counter(news) ".";
+    top: 27px;
+    left: 0;
+  }
+
   &__top {
     display: flex;
     align-items: baseline;
     gap: 20px;
     font-size: 20px;
   }
-  &__number {
-    font-size: 25px;
-    color: grey;
-    font-weight: bold;
-  }
   &__title {
+    font-size: 25px;
+    &:hover {
+      transition: 1s ease;
+      color: blue;
+    }
   }
-  &__block {
+  &__info {
     display: flex;
     gap: 15px;
   }
-  &__blockAuthor,
+
+  &__infoAuthor {
+    display: flex;
+    gap: 8px;
+  }
+  &__infoSpan {
+    &:hover {
+      color: red;
+      transition: 1s ease;
+      cursor: pointer;
+    }
+  }
+  &__infoRate,
   &__blockDate,
-  &__titleLink {
+  &__link {
     &:hover {
       transition: 1s ease;
       text-decoration: underline;

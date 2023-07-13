@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/styles/global.scss";
-import Home from "./components/screens/home-page/HomePage";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import Router from "./components/Router";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Home />
+    <Provider store={store}>
+      <Router />
+    </Provider>
   </React.StrictMode>
 );

@@ -1,0 +1,24 @@
+.news {
+  border: 1px solid red;
+  padding: 10px 10px 30px 10px;
+  text-align: center;
+  border-radius: 20px;
+  &__top {
+    // display: flex;
+  }
+  &__title {
+  }
+  &__link {
+    display: inline-block;
+    margin-bottom: 20px;
+    &:hover {
+      color: blueviolet;
+      transition: 1s ease;
+      text-decoration: underline;
+    }
+  }
+  &__infoRate,
+  &__infoAuthor {
+    margin-right: 10px;
+  }
+}
