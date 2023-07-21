@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../news-page/news-detail/NewsDetail.module.scss";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axiosData from "../../../services/getStories";
 import Header from "../../../header/Header";
 import Layout from "../../../layout/Layout";
+
 const NewsDetail = () => {
   const stories = useSelector((state) => state.stories.stories);
 
@@ -30,9 +31,6 @@ const NewsDetail = () => {
     <>
       <Header />
       <Layout>
-        <Link to={"/"}>
-          <button>{"<--"}</button>
-        </Link>
         <div className={styles.news}>
           <div className={styles.news__top}>
             <h2 className={styles.news__title}>{story.title}</h2>

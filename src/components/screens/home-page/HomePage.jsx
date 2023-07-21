@@ -1,5 +1,6 @@
 import Header from "../../header/Header";
 import NewsList from "./news-list/NewsList";
+import styles from "./HomePage.module.scss";
 import { useSelector } from "react-redux";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <>
       <Header />
       <NewsList stories={stories} />
+      {/* <div className={styles.loading}></div> */}
     </>
   );
 }

@@ -1,4 +1,8 @@
+@import "/src/assets/styles/variables";
+
 .news {
+  margin-top: 100px;
+  position: relative;
   border: 1px solid red;
   padding: 10px 10px 30px 10px;
   text-align: center;
@@ -7,13 +11,14 @@
     // display: flex;
   }
   &__title {
+    // margin-top: 25px;
   }
   &__link {
     display: inline-block;
     margin-bottom: 20px;
     &:hover {
       color: blueviolet;
-      transition: 1s ease;
+      transition: $transition;
       text-decoration: underline;
     }
   }
@@ -22,3 +27,9 @@
     margin-right: 10px;
   }
 }
+
+// .arrowBtn {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }

@@ -1,14 +1,9 @@
 @import "normalize.css";
-
-$background-dark-theme: #242424;
-$text-dark-theme: rgba(255, 255, 255, 0.87);
-$background-light-theme: #ffffff;
-$text-light-theme: black;
-$text-header-dark-theme: orange;
+@import "./variables.scss";
 
 html[data-theme="dark"] {
   body {
-    transition: 1s ease;
+    transition: $transition;
     background-color: $background-dark-theme;
     color: $text-dark-theme;
     h1 {
@@ -24,7 +19,7 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
   body {
-    transition: 1s ease;
+    transition: $transition;
     background-color: $background-light-theme;
     color: $text-light-theme;
     h1 {

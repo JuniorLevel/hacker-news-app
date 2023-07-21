@@ -1,17 +1,21 @@
-import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import Layout from "../layout/Layout";
 import axiosData from "../services/getStories";
-import refreshImg from "../../../public/images/refresh.svg";
-import lightThemeImg from "../../../public/images/light-mode.svg";
-import darkThemeImg from "../../../public/images/dark-mode.svg";
+import refreshImg from "/public/images/refresh.svg";
+import lightThemeImg from "/public/images/light-mode.svg";
+import darkThemeImg from "/public/images/dark-mode.svg";
 import useTheme from "../../hooks/use-theme";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../../store/themeReducer";
+import { useLocation } from "react-router-dom";
+import arrowBackDarkImg from "/public/images/arrowBackDark.svg";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
-  const { theme, setTheme } = useTheme();
+  const { defaultTheme, setDefaultTheme } = useTheme();
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   return (
     <header className={styles.header}>
@@ -27,13 +31,24 @@ export default function Header() {
           <div className={styles.headerPanel}>
             <h1 className={styles.headerPanel__title}>The Hacker News</h1>
             <div className={styles.headerPanel__buttons}>
-              <button onClick={() => dispatch(axiosData())}>
-                <img src={refreshImg} alt="refresh-svg" />
-              </button>
+              {location.pathname !== "/" ? (
+                <Link to={"/"}>
+                  <button>
+                    <img src={arrowBackDarkImg} alt="arrow-img" />
+                  </button>
+                </Link>
+              ) : (
+                <button onClick={() => dispatch(axiosData())}>
+                  <img src={refreshImg} alt="refresh-svg" />
+                </button>
+              )}
+
               <button
                 onClick={() => {
-                  setIsLightTheme(!isLightTheme);
-                  theme !== "light" ? setTheme("light") : setTheme("dark");
+                  dispatch(setTheme(!isLightTheme));
+                  defaultTheme !== "light"
+                    ? setDefaultTheme("light")
+                    : setDefaultTheme("dark");
                 }}
               >
                 <img

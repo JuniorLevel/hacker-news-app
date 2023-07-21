@@ -1,3 +1,5 @@
+@import "/src/assets/styles/variables";
+
 .news {
   counter-increment: news;
   position: relative;
@@ -19,8 +21,8 @@
   &__title {
     font-size: 25px;
     &:hover {
-      transition: 1s ease;
-      color: blue;
+      transition: $transition;
+      color: rgba(195, 0, 255, 0.556);
     }
   }
   &__info {
@@ -35,7 +37,7 @@
   &__infoSpan {
     &:hover {
       color: red;
-      transition: 1s ease;
+      transition: $transition;
       cursor: pointer;
     }
   }
@@ -43,7 +45,7 @@
   &__blockDate,
   &__link {
     &:hover {
-      transition: 1s ease;
+      transition: $transition;
       text-decoration: underline;
       cursor: pointer;
     }

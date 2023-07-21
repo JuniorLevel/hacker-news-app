@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const useTheme = () => {
-  const [theme, setTheme] = useState("light");
+  const [defaultTheme, setDefaultTheme] = useState("light");
+  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+    !isLightTheme ? setDefaultTheme("dark") : setDefaultTheme("light");
+    document.documentElement.setAttribute("data-theme", defaultTheme);
+  }, [dispatch, isLightTheme, defaultTheme]);
 
-  return { theme, setTheme };
+  return { defaultTheme, setDefaultTheme };
 };
 
 export default useTheme;
