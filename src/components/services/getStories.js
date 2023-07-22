@@ -7,7 +7,7 @@ const getStories = () => {
     dispatch(setIsLoadingAction(true));
     const storiesId = await axios
       .get("https://hacker-news.firebaseio.com/v0/topstories.json")
-      .then((response) => response.data.slice(0, 10));
+      .then((response) => response.data.slice(0, 100));
 
     const getStories = (storiesId) => {
       storiesId.map(

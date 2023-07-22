@@ -1,0 +1,31 @@
+@import "/src/assets/styles/variables.scss";
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination__list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.pagination__item {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(0, 42, 255);
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.pagination__item:hover {
+  cursor: pointer;
+  color: red;
+  /* transition: $transition; */
+}
+
+.pagination__item.active {
+  background-color: orange;
+}
