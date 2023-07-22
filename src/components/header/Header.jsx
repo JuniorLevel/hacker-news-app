@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import Layout from "../layout/Layout";
-import axiosData from "../services/getStories";
+import getStories from "../services/getStories";
 import refreshImg from "/public/images/refresh.svg";
 import lightThemeImg from "/public/images/light-mode.svg";
 import darkThemeImg from "/public/images/dark-mode.svg";
@@ -38,7 +38,7 @@ export default function Header() {
                   </button>
                 </Link>
               ) : (
-                <button onClick={() => dispatch(axiosData())}>
+                <button onClick={() => dispatch(getStories())}>
                   <img src={refreshImg} alt="refresh-svg" />
                 </button>
               )}

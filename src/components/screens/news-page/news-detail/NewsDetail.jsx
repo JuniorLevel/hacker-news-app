@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styles from "../../news-page/news-detail/NewsDetail.module.scss";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import axiosData from "../../../services/getStories";
+import getStories from "../../../services/getStories";
 import Header from "../../../header/Header";
 import Layout from "../../../layout/Layout";
 
@@ -22,7 +22,7 @@ const NewsDetail = () => {
 
   useEffect(() => {
     if (!id) return;
-    dispatch(axiosData());
+    dispatch(getStories());
   }, [dispatch, id]);
 
   const story = stories.find((item) => item.id === Number(id));

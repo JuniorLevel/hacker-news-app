@@ -5,12 +5,16 @@ import { useSelector } from "react-redux";
 
 export default function Home() {
   const stories = useSelector((state) => state.stories.stories);
+  const isLoading = useSelector((state) => state.stories.isLoading);
 
   return (
     <>
       <Header />
-      <NewsList stories={stories} />
-      {/* <div className={styles.loading}></div> */}
+      {!isLoading ? (
+        <NewsList stories={stories} />
+      ) : (
+        <div className={styles.loading}></div>
+      )}
     </>
   );
 }
