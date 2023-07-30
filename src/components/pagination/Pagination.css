@@ -1,5 +1,3 @@
-@import "/src/assets/styles/variables.scss";
-
 .pagination {
   margin-top: 20px;
 }
@@ -23,7 +21,6 @@
 .pagination__item:hover {
   cursor: pointer;
   color: red;
-  /* transition: $transition; */
 }
 
 .pagination__item.active {

@@ -1,8 +1,10 @@
 const defaultState = {
+  storiesId: [],
   stories: [],
   isLoading: true,
 };
 
+const GET_STORIES_ID = "GET_STORIES_ID";
 const ADD_STORIES = "ADD_STORIES";
 const SET_LOADING = "SET_LOADING";
 
@@ -13,15 +15,15 @@ const storiesReducer = (state = defaultState, action) => {
         ...state,
         isLoading: action.payload,
       };
+    case GET_STORIES_ID:
+      return {
+        ...state,
+        storiesId: [...action.payload],
+      };
     case ADD_STORIES:
       return {
         ...state,
-        stories: [
-          ...state.stories
-            .sort((a, b) => b.time - a.time)
-            .filter((story) => story.id !== action.payload.id),
-          action.payload,
-        ],
+        stories: [...action.payload],
         isLoading: false,
       };
     default:
@@ -30,6 +32,13 @@ const storiesReducer = (state = defaultState, action) => {
 };
 
 export default storiesReducer;
+
+export const getStoriesIdAction = (payload) => {
+  return {
+    type: GET_STORIES_ID,
+    payload,
+  };
+};
 
 export const addStoriesAction = (payload) => {
   return {

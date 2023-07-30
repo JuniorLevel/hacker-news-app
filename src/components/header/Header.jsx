@@ -1,21 +1,22 @@
 import styles from "./Header.module.scss";
 import Layout from "../layout/Layout";
-import getStories from "../services/getStories";
-import refreshImg from "/public/images/refresh.svg";
-import lightThemeImg from "/public/images/light-mode.svg";
-import darkThemeImg from "/public/images/dark-mode.svg";
+import { getStoriesIds } from "../services/api";
+import refreshImg from "/images/refresh.svg";
+import lightThemeImg from "/images/light-mode.svg";
+import darkThemeImg from "/images/dark-mode.svg";
 import useTheme from "../../hooks/use-theme";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../store/themeReducer";
 import { useLocation } from "react-router-dom";
-import arrowBackDarkImg from "/public/images/arrowBackDark.svg";
+import arrowBackDarkImg from "/images/arrowBackDark.svg";
 import { Link } from "react-router-dom";
-
+import { getStories } from "../services/api";
 export default function Header() {
   const { defaultTheme, setDefaultTheme } = useTheme();
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const dispatch = useDispatch();
   const location = useLocation();
+  const storiesIds = useSelector((state) => state.stories.storiesId);
 
   return (
     <header className={styles.header}>
@@ -38,7 +39,7 @@ export default function Header() {
                   </button>
                 </Link>
               ) : (
-                <button onClick={() => dispatch(getStories())}>
+                <button onClick={() => dispatch(getStories(storiesIds))}>
                   <img src={refreshImg} alt="refresh-svg" />
                 </button>
               )}

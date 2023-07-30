@@ -2,12 +2,7 @@
 import Layout from "../layout/Layout";
 import "./Pagination.css";
 
-const Pagination = ({
-  storiesPerPage,
-  totalStories,
-  paginate,
-  currentPage,
-}) => {
+function Pagination({ storiesPerPage, totalStories, paginate, currentPage }) {
   const nums = [];
 
   for (let i = 1; i <= Math.ceil(totalStories / storiesPerPage); i++) {
@@ -35,6 +30,6 @@ const Pagination = ({
       </div>
     </Layout>
   );
-};
+}
 
 export default Pagination;

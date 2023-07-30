@@ -2,16 +2,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./screens/home-page/HomePage";
 import NewsDetail from "./screens/news-page/news-detail/NewsDetail";
 import { useEffect } from "react";
-import getStories from "./services/getStories";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getStoriesIds, getStories } from "./services/api";
+
 const Router = () => {
   const dispatch = useDispatch();
+  const storiesIds = useSelector((state) => state.stories.storiesId);
 
   useEffect(() => {
-    dispatch(getStories());
-    setInterval(() => {
-      dispatch(getStories());
-    }, 60000);
+    dispatch(getStoriesIds());
+    console.log("work");
   }, [dispatch]);
 
   return (
