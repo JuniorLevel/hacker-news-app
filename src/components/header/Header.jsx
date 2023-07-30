@@ -1,6 +1,5 @@
 import styles from "./Header.module.scss";
 import Layout from "../layout/Layout";
-import { getStoriesIds } from "../services/api";
 import refreshImg from "/images/refresh.svg";
 import lightThemeImg from "/images/light-mode.svg";
 import darkThemeImg from "/images/dark-mode.svg";
@@ -10,13 +9,12 @@ import { setTheme } from "../../store/themeReducer";
 import { useLocation } from "react-router-dom";
 import arrowBackDarkImg from "/images/arrowBackDark.svg";
 import { Link } from "react-router-dom";
-import { getStories } from "../services/api";
+import { getStoriesIds } from "../services/api";
 export default function Header() {
   const { defaultTheme, setDefaultTheme } = useTheme();
   const isLightTheme = useSelector((state) => state.theme.isLightTheme);
   const dispatch = useDispatch();
   const location = useLocation();
-  const storiesIds = useSelector((state) => state.stories.storiesId);
 
   return (
     <header className={styles.header}>
@@ -39,7 +37,7 @@ export default function Header() {
                   </button>
                 </Link>
               ) : (
-                <button onClick={() => dispatch(getStories(storiesIds))}>
+                <button onClick={() => dispatch(getStoriesIds())}>
                   <img src={refreshImg} alt="refresh-svg" />
                 </button>
               )}

@@ -11,8 +11,14 @@ const Router = () => {
 
   useEffect(() => {
     dispatch(getStoriesIds());
-    console.log("work");
+    setInterval(() => {
+      dispatch(getStoriesIds());
+    }, 60000);
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getStories(storiesIds));
+  }, [storiesIds, dispatch]);
 
   return (
     <BrowserRouter>

@@ -1,8 +1,9 @@
 import {
   addStoriesAction,
   getStoriesIdAction,
+  setIsLoadingAction,
 } from "../../store/storiesReducer";
-import { setIsLoadingAction } from "../../store/storiesReducer";
+
 import axios from "axios";
 
 const getStoriesIds = () => {
@@ -13,7 +14,6 @@ const getStoriesIds = () => {
       .then((response) =>
         dispatch(getStoriesIdAction(response.data.slice(0, 100)))
       );
-    dispatch(setIsLoadingAction(false));
   };
 };
 
@@ -29,7 +29,6 @@ const getStories = (storiesIds) => {
       stories.push(story);
       dispatch(addStoriesAction(stories));
     });
-    dispatch(setIsLoadingAction(false));
   };
 };
 

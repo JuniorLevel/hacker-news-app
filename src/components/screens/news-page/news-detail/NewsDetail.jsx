@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../news-page/news-detail/NewsDetail.module.scss";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getStoriesIds } from "../../../services/api";
 import Header from "../../../header/Header";
 import Layout from "../../../layout/Layout";
 
@@ -18,12 +16,10 @@ const NewsDetail = () => {
     return publishedDate;
   }
   const { id } = useParams();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!id) return;
-    dispatch(getStoriesIds());
-  }, [dispatch, id]);
+  }, [id]);
 
   const story = stories.find((item) => item.id === Number(id));
 

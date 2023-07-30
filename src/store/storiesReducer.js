@@ -19,6 +19,7 @@ const storiesReducer = (state = defaultState, action) => {
       return {
         ...state,
         storiesId: [...action.payload],
+        isLoading: false,
       };
     case ADD_STORIES:
       return {

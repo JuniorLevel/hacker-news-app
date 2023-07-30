@@ -14,7 +14,9 @@ export default function Home() {
 
   const lastStoriesIndex = currentPage * storiesPerPage;
   const firstStoriesIndex = lastStoriesIndex - storiesPerPage;
-  const currentStories = stories.slice(firstStoriesIndex, lastStoriesIndex);
+  const currentStories = stories
+    .slice(firstStoriesIndex, lastStoriesIndex)
+    .sort((a, b) => b.time - a.time);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
