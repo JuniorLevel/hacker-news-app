@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./screens/home-page/HomePage";
 import NewsDetail from "./screens/news-page/news-detail/NewsDetail";
 import { useEffect } from "react";
@@ -25,7 +25,7 @@ const Router = () => {
       <Routes>
         <Route element={<Home />} path="/" />
         <Route element={<NewsDetail />} path="/news-detail/:id" />
-        <Route path="*" element={<div>Page not found</div>} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

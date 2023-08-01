@@ -1,27 +1,23 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../news-page/news-detail/NewsDetail.module.scss";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import Header from "../../../header/Header";
 import Layout from "../../../layout/Layout";
+import convertDate from "../../../../utils/convertDate";
 
 const NewsDetail = () => {
-  const stories = useSelector((state) => state.stories.stories);
-
-  function convertDate(date) {
-    const publishedDate = new Date(date * 1000).toUTCString();
-    // const hours = publishedDate.getHours();
-    // const minutes = publishedDate.getMinutes();
-    // return `${publishedDate} ${hours}:${minutes}`;
-    return publishedDate;
-  }
   const { id } = useParams();
+  const stories = useSelector((state) => state.stories.stories);
+  const story = stories.find((item) => item.id === Number(id));
 
   useEffect(() => {
     if (!id) return;
   }, [id]);
 
-  const story = stories.find((item) => item.id === Number(id));
+  if (!story) {
+    return (window.location.pathname = "/");
+  }
 
   return (
     <>

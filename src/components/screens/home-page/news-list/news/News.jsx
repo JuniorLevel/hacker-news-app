@@ -1,11 +1,8 @@
 /* eslint-disable react/prop-types */
 import styles from "./News.module.scss";
 import { Link } from "react-router-dom";
+import convertDate from "../../../../../utils/convertDate";
 export default function News({ story }) {
-  function convertDate(date) {
-    return new Date(date * 1000).toLocaleDateString();
-  }
-
   return (
     <>
       <li className={styles.news}>
