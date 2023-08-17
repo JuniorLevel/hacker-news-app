@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../news-page/news-detail/NewsDetail.module.scss";
-import { redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Header from "../../../header/Header";
 import Layout from "../../../layout/Layout";
 import convertDate from "../../../../utils/convertDate";
@@ -39,7 +39,7 @@ const NewsDetail = () => {
             <span className={styles.news__infoAuthor}>
               by <span className={styles.news__infoSpan}>{story.by}</span>
             </span>
-            <span>{convertDate(story.time)}</span>
+            <span className={styles.news__date}>{convertDate(story.time)}</span>
           </div>
         </div>
       </Layout>

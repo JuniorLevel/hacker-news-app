@@ -1,25 +1,8 @@
 @import "/src/assets/styles/variables";
 
 .news {
-  counter-increment: news;
-  position: relative;
-  padding-left: 45px;
-  margin-bottom: 20px;
-  &:before {
-    position: absolute;
-    content: counter(news) ".";
-    top: 27px;
-    left: 0;
-  }
-
-  &__top {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    font-size: 20px;
-  }
   &__title {
-    font-size: 25px;
+    @include adaptive-font(25, 18);
     &:hover {
       transition: $transition;
       color: rgba(195, 0, 255, 0.556);
@@ -28,6 +11,7 @@
   &__info {
     display: flex;
     gap: 15px;
+    @include adaptive-font(18, 10);
   }
 
   &__infoAuthor {

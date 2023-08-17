@@ -1,5 +1,7 @@
+@import "/src/assets/styles/variables";
+
 .layout {
   margin: 0 auto;
-  max-width: 1070px;
+  max-width: $maxWidth;
   padding: 0 20px;
 }
