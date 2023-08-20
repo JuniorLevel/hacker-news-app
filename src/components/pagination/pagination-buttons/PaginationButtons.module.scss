@@ -1,23 +1,23 @@
-@import "/src/assets/styles/variables";
+@import '/src/assets/styles/variables';
 
 .paginationButtons {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  margin-bottom: 10px;
-  &__prev,
-  &__next {
-    display: block;
-    width: 100px;
-    height: 35px;
-    padding: 5px 10px;
-    background-color: blue;
-    border-radius: 20px;
-    color: orange;
-  }
-  &__prev:hover,
-  &__next:hover {
-    background-color: black;
-    transition: $transition;
-  }
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+	margin-bottom: 10px;
+	&__prev,
+	&__next {
+		display: block;
+		width: 100px;
+		height: 35px;
+		padding: 5px 10px;
+		background-color: blue;
+		border-radius: 20px;
+		color: orange;
+	}
+	&__prev:hover,
+	&__next:hover {
+		background-color: black;
+		transition: $transition;
+	}
 }
