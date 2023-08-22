@@ -15,7 +15,6 @@ const getStoriesIds = () => {
 				.then(response =>
 					dispatch(getStoriesIdsAction(response.data.slice(0, 100)))
 				);
-			throw new Error('Something was wrong!');
 		} catch (err) {
 			console.log(err);
 		}
@@ -35,7 +34,6 @@ const getStories = storiesIds => {
 				stories.push(story);
 				dispatch(getStoriesAction(stories));
 			});
-			throw new Error('Something was wrong!');
 		} catch (err) {
 			console.log(err);
 		}

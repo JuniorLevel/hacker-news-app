@@ -1,6 +1,9 @@
-// .main {
-//   background-color: #ffffff;
-//   color: black;
-// }
+@import '/src/assets/styles/variables';
 
-// При нажатии mainLight или mainDark
+.emptyList {
+	min-height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include adaptive-font(56, 24);
+}
