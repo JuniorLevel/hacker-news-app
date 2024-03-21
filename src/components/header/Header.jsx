@@ -1,18 +1,14 @@
-import styles from "./Header.module.scss";
-import Layout from "../layout/Layout";
-import refreshImg from "/images/refresh.svg";
-import lightThemeImg from "/images/light-mode.svg";
-import darkThemeImg from "/images/dark-mode.svg";
-import useTheme from "../../hooks/use-theme";
-import { useDispatch, useSelector } from "react-redux";
-import { setTheme } from "../../store/themeReducer";
-import { useLocation } from "react-router-dom";
-import arrowBackDarkImg from "/images/arrowBackDark.svg";
-import { Link } from "react-router-dom";
-import { getStoriesIds } from "../services/api";
+import { LuRefreshCcw } from 'react-icons/lu';
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import { TiArrowBackOutline } from 'react-icons/ti';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { setTheme } from '../../store/themeReducer';
+import Layout from '../layout/Layout';
+import { getStoriesIds } from '../services/api';
+import styles from './Header.module.scss';
 export default function Header() {
-  const { defaultTheme, setDefaultTheme } = useTheme();
-  const isLightTheme = useSelector((state) => state.theme.isLightTheme);
+  const currentTheme = useSelector(state => state.theme.currentTheme);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -30,31 +26,34 @@ export default function Header() {
           <div className={styles.headerPanel}>
             <h1 className={styles.headerPanel__title}>The Hacker News</h1>
             <div className={styles.headerPanel__buttons}>
-              {location.pathname !== "/" ? (
-                <Link to={"/"}>
+              {location.pathname !== '/' ? (
+                <Link to={'/'}>
                   <button>
-                    <img src={arrowBackDarkImg} alt="arrow-img" />
+                    <TiArrowBackOutline size={50} />
                   </button>
                 </Link>
               ) : (
                 <button onClick={() => dispatch(getStoriesIds())}>
-                  <img src={refreshImg} alt="refresh-svg" />
+                  <LuRefreshCcw size={50} />
                 </button>
               )}
-
-              <button
-                onClick={() => {
-                  dispatch(setTheme(!isLightTheme));
-                  defaultTheme !== "light"
-                    ? setDefaultTheme("light")
-                    : setDefaultTheme("dark");
-                }}
-              >
-                <img
-                  src={!isLightTheme ? darkThemeImg : lightThemeImg}
-                  alt={!isLightTheme ? "dark-mode.svg" : "light-mode.svg"}
-                />
-              </button>
+              {location.pathname === '/' && (
+                <button
+                  onClick={() => {
+                    dispatch(
+                      setTheme(currentTheme === 'light' ? 'dark' : 'light'),
+                    );
+                    localStorage.setItem('theme', currentTheme);
+                    document.documentElement.setAttribute(
+                      'data-theme',
+                      currentTheme,
+                    );
+                  }}
+                >
+                  {currentTheme === 'light' && <MdOutlineDarkMode size={50} />}
+                  {currentTheme === 'dark' && <MdOutlineLightMode size={50} />}
+                </button>
+              )}
             </div>
           </div>
         </Layout>

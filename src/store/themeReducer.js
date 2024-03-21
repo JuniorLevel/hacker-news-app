@@ -1,15 +1,17 @@
 const defaultState = {
-  isLightTheme: true,
+  currentTheme: !localStorage.getItem('theme')
+    ? 'light'
+    : localStorage.getItem('theme'),
 };
 
-const SET_THEME = "SET_THEME";
+const SET_THEME = 'SET_THEME';
 
 const themeReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SET_THEME:
       return {
         ...state,
-        isLightTheme: action.payload,
+        currentTheme: action.payload,
       };
     default:
       return state;
@@ -18,7 +20,7 @@ const themeReducer = (state = defaultState, action) => {
 
 export default themeReducer;
 
-export const setTheme = (payload) => {
+export const setTheme = payload => {
   return {
     type: SET_THEME,
     payload,

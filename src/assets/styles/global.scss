@@ -1,7 +1,7 @@
-@import "normalize.css";
-@import "./variables.scss";
+@import 'normalize.css';
+@import './variables.scss';
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   body {
     transition: $transition;
     background-color: $background-dark-theme;
@@ -17,7 +17,7 @@ html[data-theme="dark"] {
   }
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
   body {
     transition: $transition;
     background-color: $background-light-theme;
@@ -35,7 +35,7 @@ html[data-theme="light"] {
 
 body {
   font-size: 18px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 ul,

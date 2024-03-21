@@ -1,9 +1,9 @@
 @import '/src/assets/styles/variables';
 
 .emptyList {
-	min-height: 50vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	@include adaptive-font(56, 24);
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include adaptive-font(56, 24);
 }
