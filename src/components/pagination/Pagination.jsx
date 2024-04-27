@@ -24,9 +24,7 @@ function Pagination({
 
   return (
     <Layout>
-      {!stories.length ? (
-        <></>
-      ) : (
+      {stories.length && (
         <div className="pagination">
           <ul className="pagination__list">
             {nums.length === storiesPerPage ? (
